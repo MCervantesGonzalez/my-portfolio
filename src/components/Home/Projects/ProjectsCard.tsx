@@ -1,0 +1,120 @@
+"use client";
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { cardVariant } from "@/components/Helper/animations";
+import { ProjectProps } from "@/lib/projects-data";
+import { CYBER_RED, CYBER_CYAN } from "@/lib/theme";
+import { ArrowUpRight, Clock } from "lucide-react";
+
+function ProjectCard({ project }: ProjectProps) {
+  // Solo tratamos el proyecto como "clickeable" si tiene una URL real.
+  const hasLiveLink = Boolean(project.link) && project.link !== "404";
+
+  const content = (
+    <>
+      {/* Contenedor de la Imagen */}
+      <div className="relative w-full aspect-video rounded-sm overflow-hidden bg-[#05080e] border border-gray-800/80">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 90vw, 40vw"
+          quality={75}
+          className={`object-cover object-top transition-transform duration-500 ${
+            hasLiveLink ? "group-hover/link:scale-105" : "opacity-70"
+          }`}
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-[#0d121c] via-transparent to-transparent opacity-40 group-hover/link:opacity-10 transition-opacity" />
+      </div>
+
+      {/* Información y Descripción */}
+      <div className="mt-4 flex flex-col grow justify-between">
+        <div>
+          <span
+            className="font-mono text-[10px] sm:text-[11px] tracking-[0.15em] uppercase block mb-1"
+            style={{ color: `${CYBER_CYAN}cc` }}
+          >
+            {`// ${project.category}`}
+          </span>
+
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide group-hover/link:text-cyan-300 transition-colors">
+              {project.title}
+            </h3>
+
+            {/* Icono de enlace externo, o reloj si el proyecto todavía no está listo */}
+            <div
+              className="w-7 h-7 shrink-0 flex items-center justify-center rounded-sm border border-gray-800 group-hover/link:border-cyan-300/50 transition-colors"
+              style={{ backgroundColor: `${CYBER_CYAN}0d` }}
+            >
+              {hasLiveLink ? (
+                <ArrowUpRight
+                  className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                  style={{ color: CYBER_CYAN }}
+                />
+              ) : (
+                <Clock
+                  className="w-3.5 h-3.5"
+                  style={{ color: `${CYBER_CYAN}99` }}
+                />
+              )}
+            </div>
+          </div>
+
+          {/* Breve descripción */}
+          <p className="mt-2 text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2">
+            {project.description}
+          </p>
+
+          {!hasLiveLink && (
+            <span
+              className="inline-block mt-3 px-2.5 py-1 rounded-sm border font-mono text-[10px] tracking-[0.15em] uppercase"
+              style={{
+                borderColor: `${CYBER_CYAN}40`,
+                color: `${CYBER_CYAN}99`,
+              }}
+            >
+              Próximamente
+            </span>
+          )}
+        </div>
+      </div>
+    </>
+  );
+
+  return (
+    <motion.article
+      variants={cardVariant}
+      whileHover={{ y: -6 }}
+      className="relative bg-[#0d121c]/80 border border-gray-800 rounded-sm p-4 sm:p-5 flex flex-col backdrop-blur-sm transition-colors duration-300 hover:border-cyan-300/50 group"
+    >
+      {/* Marcadores de esquina */}
+      <div
+        className="absolute -top-px -left-px w-3.5 h-3.5 border-l-2 border-t-2 z-10"
+        style={{ borderColor: CYBER_RED }}
+      />
+      <div
+        className="absolute -bottom-px -right-px w-3.5 h-3.5 border-r-2 border-b-2 z-10"
+        style={{ borderColor: CYBER_RED }}
+      />
+
+      {hasLiveLink ? (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col grow group/link focus:outline-none"
+        >
+          {content}
+        </a>
+      ) : (
+        <div className="flex flex-col grow group/link cursor-default">
+          {content}
+        </div>
+      )}
+    </motion.article>
+  );
+}
+
+export default ProjectCard;
