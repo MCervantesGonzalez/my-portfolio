@@ -5,6 +5,7 @@ export interface ProjectItem {
   description?: string;
   image: string;
   link?: string;
+  repoLink?: string;
 }
 
 export interface ProjectProps {
@@ -20,6 +21,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "Plataforma de comercio electrónico end-to-end con arquitectura sólida en NestJS y Next.js 14. Incluye checkout integrado con Mercado Pago, procesamiento de webhooks, autenticación con rate limiting y dashboard de administración para control de stock e imágenes optimizadas en la nube.",
     image: "/images/P1.jpg",
     link: "https://sprint-ecommerce-web.onrender.com/",
+    repoLink: "https://github.com/MCervantesGonzalez/sprint-ecommerce",
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "Aplicación web para administración de gimnasios con control de acceso basado en roles (cliente, coach y administrador). Desarrollada con Next.js y Tailwind CSS, incluye catálogo interactivo de clases, reserva de cupos y flujo de membresías orientado a una UX fluida.",
     image: "/images/P2.jpg",
     link: "https://pf-front-ijjg.vercel.app/",
+    repoLink: "https://github.com/PowerGymok/PF-Front",
   },
   {
     id: 3,

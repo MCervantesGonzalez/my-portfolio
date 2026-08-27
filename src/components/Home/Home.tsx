@@ -14,9 +14,9 @@ function Home() {
       <SectionDivider />
       <Services />
       <SectionDivider />
-      <Resume />
-      <SectionDivider />
       <Projects />
+      <SectionDivider />
+      <Resume />
       <SectionDivider />
       <Skills />
       <SectionDivider />

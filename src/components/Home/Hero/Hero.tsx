@@ -67,7 +67,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex items-center justify-center text-white overflow-hidden py-12 px-4"
+      className="relative min-h-screen w-full flex items-center justify-center text-white overflow-hidden pt-28 sm:pt-32 pb-12 px-4"
     >
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto text-center">
         {/* AVATAR  */}
