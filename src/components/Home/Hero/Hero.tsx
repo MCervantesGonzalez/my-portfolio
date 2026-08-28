@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Search, ChevronDown } from "lucide-react";
+import { Search } from "lucide-react";
 import { CYBER_RED, CYBER_CYAN } from "@/lib/theme";
 
 const ROLES = ["abren puertas", "cierran tratos", "generan confianza"];
@@ -57,7 +56,7 @@ function RoleCycler() {
         aria-hidden
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-        className="inline-block w-0.5 h-[1em] bg-cyan-300 ml-1 align-middle"
+        className="inline-block w-0.5 h- bg-cyan-300 ml-1 align-middle"
       />
     </span>
   );
@@ -70,7 +69,7 @@ function Hero() {
       className="relative min-h-screen w-full flex items-center justify-center text-white overflow-hidden pt-28 sm:pt-32 pb-12 px-4"
     >
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto text-center">
-        {/* AVATAR  */}
+        {/* AVATAR - AHORA ANIMADO */}
         <div className="relative w-40 h-40 sm:w-45 sm:h-45 group">
           <div
             className="absolute -inset-1 border border-dashed rounded-full"
@@ -84,18 +83,23 @@ function Hero() {
             className="absolute -bottom-2 -right-1 w-4 h-4 border-r-2 border-b-2 rounded-br-sm"
             style={{ borderColor: CYBER_RED }}
           />
-          <Image
-            src={"/Perfil.png"}
-            alt="Miguel - Avatar del portafolio"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/Perfil.png"
             width={200}
             height={200}
-            priority
-            className="rounded-full object-cover transition-all duration-300 group-hover:scale-105"
+            className="rounded-full object-cover transition-all duration-300 group-hover:scale-105 w- h- sm:w- sm:h-"
             style={{
               boxShadow: `0 0 20px 4px rgba(255, 51, 75, 0.6), inset 0 0 10px rgba(255, 51, 75, 0.4)`,
               border: `4px solid ${CYBER_RED}`,
             }}
-          />
+          >
+            <source src="/profile-loop.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* ID BADGE */}
@@ -104,15 +108,15 @@ function Hero() {
             Miguel Angel Cervantes
           </span>
           <span
-            className="font-mono text-[10px] tracking-[0.2em] uppercase"
+            className="font-mono text- tracking-[0.2em] uppercase"
             style={{ color: `${CYBER_RED}cc` }}
           >
             Full_Stack_Developer
           </span>
         </div>
 
-        {/* STATUS BAR  */}
-        <div className="mb-8 flex flex-col items-center gap-2 font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase text-cyan-300/70">
+        {/* STATUS BAR */}
+        <div className="mb-8 flex flex-col items-center gap-2 font-mono text- sm:text-xs tracking-[0.2em] uppercase text-cyan-300/70">
           <div className="flex items-center gap-2">
             <span
               className="w-1.5 h-1.5 rounded-full animate-pulse"
@@ -184,7 +188,6 @@ function Hero() {
           <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
         </a>
 
-        {/* MARCADORES DE ESQUINA */}
         <div className="absolute top-6 left-4 w-4 h-4 border-l border-t border-gray-800" />
         <div className="absolute top-6 right-4 w-4 h-4 border-r border-t border-gray-800" />
         <div className="absolute bottom-0 left-4 w-4 h-4 border-l border-b border-gray-800" />
@@ -195,3 +198,5 @@ function Hero() {
 }
 
 export default Hero;
+
+console.log("Hello There");
