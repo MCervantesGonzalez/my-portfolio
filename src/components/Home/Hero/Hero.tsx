@@ -105,7 +105,7 @@ function Hero() {
         {/* ID BADGE */}
         <div className="mt-4 flex flex-col items-center gap-1">
           <span className="font-mono text-xs tracking-[0.3em] text-white/70 uppercase">
-            Miguel Angel Cervantes
+            Miguel Angel Cervantes Gonzalez
           </span>
           <span
             className="font-mono text- tracking-[0.2em] uppercase"

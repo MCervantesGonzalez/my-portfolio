@@ -7,7 +7,7 @@ import Footer from "@/components/Home/Footer/Footer";
 import ScrollToTop from "@/components/Helper/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: "Mike | Cyberpunk Portfolio",
+  title: "Miguel Cervantes | Portfolio",
   description: "Web Developer Portfolio",
 };
 
