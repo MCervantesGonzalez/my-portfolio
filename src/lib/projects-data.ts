@@ -20,7 +20,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     description:
       "Plataforma de comercio electrónico end-to-end con arquitectura sólida en NestJS y Next.js 14. Incluye checkout integrado con Mercado Pago, procesamiento de webhooks, autenticación con rate limiting y dashboard de administración para control de stock e imágenes optimizadas en la nube.",
     image: "/images/P1.jpg",
-    link: "https://sprint-ecommerce-web.onrender.com/",
+    link: "https://sprintfront.vercel.app/",
     repoLink: "https://github.com/MCervantesGonzalez/sprint-ecommerce",
   },
   {
